@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "auto-ria-scraping"
+version = "0.1.0"
+description = ""
+authors = ["eldar-mustafayev <eldar-mustafayev@outlook.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+sqlalchemy = {extras = ["aiosqlite"], version = "^2.0.36"}
+lxml = {extras = ["cssselect"], version = "^5.3.0"}
+aiohttp = {extras = ["speedups"], version = "^3.11.8"}
+pydantic-settings = "^2.6.1"
+requests = "^2.32.3"
+python-telegram-bot = {extras = ["job-queue", "rate-limiter"], version = "^21.8"}
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.8.1"
+
+[tool.ruff]
+line-length = 110
+lint.select = [
+  "E",   # pycodestyle errors
+  "W",  # pycodestyle warnings
+  "F",   # pyflakes
+  "UP",  # pyupgrade
+  "I",  # isort
+]
+lint.ignore = [ "UP007" ]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
